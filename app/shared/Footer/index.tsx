@@ -35,7 +35,7 @@ const Footer = () => {
             <div className="container mx-auto">
                 <div className="flex justify-between flex-col md:flex-row gap-6 md:gap-0">
                     <div className="flex flex-col gap-5">
-                        <a href="#">
+                        <a href="/">
                             <img className='w-3/6 md:w-auto transition-all' src={LIGHT_LOGO} alt='Ilesuem Club' />
                         </a>
                         <p>

@@ -45,7 +45,7 @@ const Header = ({ isDark = false }) => {
     return (
         <header className={`fixed w-full z-10 transition-all duration-300 ${scrolled ? 'bg-purple/80 backdrop-blur shadow-md' : 'bg-transparent'}`}>
             <div className="container mx-auto px-4 md:px-0 py-4 flex items-center justify-between">
-                <a href="#" className='block transition-all w-32 md:w-auto'>
+                <a href="/" className='block transition-all w-32 md:w-auto'>
                     <img
                         src={isDark ? DARK_LOGO : LIGHT_LOGO}
                         alt="Ilesuem Club"
