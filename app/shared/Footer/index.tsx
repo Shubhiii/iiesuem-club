@@ -31,9 +31,9 @@ const CONTACT_INFO = [
 
 const Footer = () => {
     return (
-        <footer className="bg-darkGray w-full px-4 md:px-0 py-4 md:py-20 transition-all relative">
+        <footer className="bg-darkGray w-full px-4 md:px-0 py-4 md:py-20 transition-all relative text-white">
             <div className="container mx-auto">
-                <div className="flex justify-between">
+                <div className="flex justify-between flex-col md:flex-row gap-6 md:gap-0">
                     <div className="flex flex-col gap-5">
                         <a href="#">
                             <img className='w-3/6 md:w-auto transition-all' src={LIGHT_LOGO} alt='Ilesuem Club' />
@@ -56,7 +56,7 @@ const Footer = () => {
                     </div>
 
                     {MENU.map((menu) => (
-                        <div key={menu.id}>
+                        <div key={menu.id} className="border-t md:border-t-0 pt-4 md:pt-0 border-dashed">
                             <h3 className="mb-4 font-semibold">{menu.header}</h3>
 
                             <div className="flex flex-col gap-2.5">
@@ -69,7 +69,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <p className="mt-20 text-center">
+            <p className="mt-20 text-center text-sm md:text-base">
                 2025 Ileseum Clubs Itd. All rights reserved | <a href="#" className="hover:underline transition-all">Terms &amp; Conditions</a> | <a href="#" className="hover:underline transition-all">Privacy policy</a>
             </p>
         </footer>
