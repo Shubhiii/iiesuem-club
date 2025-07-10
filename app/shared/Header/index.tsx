@@ -26,7 +26,7 @@ const Header = ({ isDark = false }) => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 100) {
+            if (window.scrollY > 1) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
@@ -43,7 +43,7 @@ const Header = ({ isDark = false }) => {
     }
 
     return (
-        <header className={`fixed w-full z-10 transition-all duration-300 ${scrolled ? 'bg-purple/80 backdrop-blur shadow-md' : 'bg-transparent'}`}>
+        <header className={`fixed w-full z-10 transition-all duration-300 ${scrolled ? `${isDark ? 'bg-white/80' : 'bg-purple/80'} backdrop-blur shadow-md` : 'bg-transparent'}`}>
             <div className="container mx-auto px-4 md:px-0 py-4 flex items-center justify-between">
                 <a href="/" className='block transition-all w-32 md:w-auto'>
                     <img
@@ -58,7 +58,7 @@ const Header = ({ isDark = false }) => {
                         <a
                             key={menu.id}
                             href={menu.link}
-                            className="text-xs text-white md:text-base transition-all hover:underline"
+                            className={`text-xs ${isDark ? 'text-black' : 'text-white'} md:text-base transition-all hover:underline`}
                         >
                             {menu.name}
                         </a>

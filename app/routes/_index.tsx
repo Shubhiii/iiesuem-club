@@ -6,6 +6,7 @@ import RIGHT_ARROW from "~/img/right_arrow.svg"
 import Marquee from "react-fast-marquee";
 import { useEffect, useState } from "react";
 import { BUTTON, CROUSEL, JOB_LIST, JOBS_CARD, LOCATIONS } from "~/constants/homepage";
+import { useNavigate } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -42,6 +43,7 @@ const renderRow = (items: any[], direction = "left" as any, speed = 100) => {
 };
 
 export default function Index() {
+  const navigate = useNavigate();
   const [isMounted, setIsMounted] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
@@ -68,7 +70,7 @@ export default function Index() {
         <div className="container mx-auto px-4 md:px-0 flex flex-col md:flex-row justify-center gap-8 md:gap-0 md:justify-between md:items-center h-full">
           <div className="md:max-w-md text-center md:text-left">
             <h1 className="text-3xl md:text-5xl font-semibold mb-6">Join the Tribe</h1>
-            <button className="bg-white text-black px-6 py-2 rounded-full text-xs md:text-lg font-medium hover:bg-gray-200 transition">
+            <button onClick={() => navigate('/jobs')} className="bg-white text-black px-6 py-2 rounded-full text-xs md:text-lg font-medium hover:bg-gray-200 transition">
               Explore All Jobs
             </button>
           </div>
@@ -78,7 +80,7 @@ export default function Index() {
               {JOB_LIST.slice(0, 4).map((job, idx) => (
                 <div
                   key={idx}
-                  className={`bg-green-300 text-black px-4 py-4 rounded-md w-72 shadow-md ${idx % 2 === 0 ? 'ml-auto' : ''}`}
+                  className={`bg-green text-black px-4 py-4 rounded-md w-72 shadow-md ${idx % 2 === 0 ? 'ml-auto' : ''}`}
                 >
                   <p className="text-sm mb-1">{job.locations.join(", ")}</p>
                   <p className="text-lg font-semibold">{job.title}</p>
@@ -128,8 +130,8 @@ export default function Index() {
 
 
       <div className="-mt-6">
-        {CROUSEL.map((item) => (
-          <div className="bg-white sticky top-20 py-5 md:py-20 border-black border-t rounded-3xl rounded-b-none" key={item.id}>
+        {CROUSEL.map((item, index) => (
+          <div className={`bg-white sticky top-20 py-5 md:py-20 border-black ${index !== 0 && 'border-t'} rounded-3xl rounded-b-none`} key={item.id}>
             <div className="container mx-auto px-4 md:px-0">
               <p className="text-black font-medium text-lg mb-6 flex items-center gap-2">
                 <span className="border border-black rounded-full w-6  h-6 flex items-center justify-center text-sm">
