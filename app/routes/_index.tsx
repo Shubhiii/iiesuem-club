@@ -94,7 +94,7 @@ export default function Index() {
                   {JOB_LIST.map((job, idx) => (
                     <div
                       key={idx}
-                      className={`bg-green-300 text-black px-4 py-4 rounded-md shadow-md`}
+                      className={`bg-green text-black px-4 py-4 rounded-md shadow-md`}
                     >
                       <p className="text-sm mb-1">{job.locations.join(", ")}</p>
                       <p className="text-lg font-semibold">{job.title}</p>
