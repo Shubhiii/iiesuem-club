@@ -5,7 +5,7 @@ import DARK_LOGO from "~/img/logo-dark.svg";
 const MENU = [
     { id: 0, name: 'Being Here', link: '' },
     { id: 1, name: 'How We Hire', link: '' },
-    { id: 2, name: 'All Jobs', link: '' },
+    { id: 2, name: 'All Jobs', link: '/jobs' },
     { id: 3, name: 'ICLD', link: '' },
 ];
 
