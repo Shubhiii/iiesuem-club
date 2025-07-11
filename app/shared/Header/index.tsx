@@ -3,7 +3,7 @@ import LIGHT_LOGO from "~/img/logo-light.svg";
 import DARK_LOGO from "~/img/logo-dark.svg";
 
 const MENU = [
-    { id: 0, name: 'Being Here', link: '' },
+    { id: 0, name: 'Being Here', link: '/beinghere' },
     { id: 1, name: 'How We Hire', link: '/how-we-hire' },
     { id: 2, name: 'All Jobs', link: '/jobs' },
     { id: 3, name: 'ICLD', link: 'icld' },
