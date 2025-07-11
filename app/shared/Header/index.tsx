@@ -6,7 +6,7 @@ const MENU = [
     { id: 0, name: 'Being Here', link: '' },
     { id: 1, name: 'How We Hire', link: '/how-we-hire' },
     { id: 2, name: 'All Jobs', link: '/jobs' },
-    { id: 3, name: 'ICLD', link: '' },
+    { id: 3, name: 'ICLD', link: 'icld' },
 ];
 
 const Header = ({ isDark = false }) => {
@@ -65,7 +65,17 @@ const Header = ({ isDark = false }) => {
                     ))}
                 </nav>
                 ) : (
-                    <p></p>
+                        <nav className="space-x-4 md:space-x-10">
+                            {MENU.map((menu) => (
+                                <a
+                                    key={menu.id}
+                                    href={menu.link}
+                                    className={`text-xs ${isDark ? 'text-black' : 'text-white'} md:text-base transition-all hover:underline`}
+                                >
+                                    {menu.name}
+                                </a>
+                            ))}
+                        </nav>
                 )}
 
             </div>
