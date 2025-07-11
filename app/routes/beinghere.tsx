@@ -182,12 +182,10 @@ function BeingHere() {
 
           {/* Left Arrow */}
           <button
-            onClick={() =>
-              setActiveIndex((prev) => (prev - 1 + cards.length) % cards.length)
-            }
+            onClick={handlePrev}
             className="w-10 h-10 border border-black text-black rounded-full flex items-center justify-center text-xl hover:bg-gray-100 transition"
           >
-            ←
+            &#x1F850;
           </button>
 
           {/* Center Card */}
@@ -207,10 +205,10 @@ function BeingHere() {
 
           {/* Right Arrow */}
           <button
-            onClick={() => setActiveIndex((prev) => (prev + 1) % cards.length)}
+            onClick={handleNext}
             className="w-10 h-10 border border-black text-black rounded-full flex items-center justify-center text-xl hover:bg-gray-100 transition"
           >
-            →
+            &#x1F852;
           </button>
 
           {/* Third Card */}
@@ -249,22 +247,16 @@ function BeingHere() {
           {/* Arrows Below Card */}
           <div className="flex justify-center gap-6 mt-4">
             <button
-              onClick={() =>
-                setActiveIndex(
-                  (prev) => (prev - 1 + cards.length) % cards.length
-                )
-              }
+              onClick={handlePrev}
               className="w-10 h-10 border border-black text-black rounded-full flex items-center justify-center text-xl hover:bg-gray-100 transition"
             >
-              ←
+              &#x1F850;
             </button>
             <button
-              onClick={() =>
-                setActiveIndex((prev) => (prev + 1) % cards.length)
-              }
+              onClick={handleNext}
               className="w-10 h-10 border border-black text-black rounded-full flex items-center justify-center text-xl hover:bg-gray-100 transition"
             >
-              →
+              &#x1F852;
             </button>
           </div>
         </div>
