@@ -1,10 +1,13 @@
 import { MetaFunction } from "@remix-run/node";
 import Accordion from "~/components/accordion";
-import Icon1 from "~/img/card1.svg";
-import Icon2 from "~/img/card2.svg";
-import Icon3 from "~/img/card3.svg";
-import Icon4 from "~/img/card4.svg";
-import Icon5 from "~/img/card5.svg";
+import CARD1 from "~/img/card1.svg";
+import CARD2 from "~/img/card2.svg";
+import CARD3 from "~/img/card3.svg";
+import CARD4 from "~/img/card4.svg";
+import CARD5 from "~/img/card5.svg";
+import RIGHTARROW from "~/img/rightarrow.svg";
+import Marquee from "react-fast-marquee";
+import { useEffect, useState } from "react";
 
 export const meta: MetaFunction = () => {
     return [
@@ -18,21 +21,34 @@ const steps = [
         step: "Step 1",
         title: "Apply",
         description: "No fancy cover letters or rap-CVs required. Just show us what you'd bring to the squad.",
-        icon: null, // space reserved
+        icon: CARD1,
     },
     {
         step: "Step 2",
         title: "Ask",
         description: "Got questions? Fire away. We love curiosity and clarity; it means you care.",
-        icon: null,
+        icon: CARD2,
     },
     {
         step: "Step 3",
         title: "Interview",
         description: "Come ready to chat, ask your questions, and keep it real. It's all about finding a match for you and for us.",
-        icon: null,
+        icon: CARD3,
+    },
+    {
+        step: "Step 4",
+        title: "Interview",
+        description: "Come ready to chat, ask your questions, and keep it real. It's all about finding a match for you and for us.",
+        icon: CARD4,
+    },
+    {
+        step: "Step 5",
+        title: "Interview",
+        description: "Come ready to chat, ask your questions, and keep it real. It's all about finding a match for you and for us.",
+        icon: CARD5,
     },
 ];
+
 
 
 const ACCORDION = [
@@ -50,8 +66,23 @@ const ACCORDION = [
     }
 ]
 
+
+
 export default function HowWeHire() {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true)
+    }, []);
+
+    if (!isMounted) {
+        return null;
+    }
+
     return (
+
+
+
         <div className="container mx-auto px-4 bg-white pt-28 pb-10 md:py-40 text-black">
             <div className="text-center flex flex-col gap-8">
                 <h1 className="text-2xl md:text-5xl font-semibold">Making it official</h1>
@@ -60,32 +91,45 @@ export default function HowWeHire() {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {steps.map((item, index) => (
-                    <div
-                        key={index}
-                        className="bg-[#7EDFA0] rounded-xl p-6 text-left flex flex-col justify-between"
-                    >
-                        <div className="flex justify-between items-start mb-4">
-                            <span className="text-sm font-medium bg-white px-2 py-1 rounded-full">
-                                {item.step}
-                            </span>
-                            {/* Placeholder for future icon */}
-                            <div className="w-6 h-6" />
-                        </div>
+            <Marquee pauseOnHover={false} gradient={false} speed={80}>
+                <div className="flex pt-20 gap-8">
+                    {steps.map((item, index) => (
+                        <div
+                            key={index}
+                            className=" bg-[#7EDFA0] rounded-3xl px-6 py-2 text-left flex flex-col min-w-[160px] max-w-sm justify-between"
+                        >
+                            <div className="flex justify-between items-start mb-8">
+                                <span className="text-sm font-medium bg-white px-4 py-2 rounded-full">
+                                    {item.step}
+                                </span>
 
-                        <div className="mb-4">
-                            <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
-                            <p className="text-sm text-gray-800">{item.description}</p>
-                        </div>
+                                {item.icon ? (
+                                    <img src={item.icon} alt={item.title} className="w-12 h-12" />
+                                ) : (
+                                    <div className="w-12 h-12" />
+                                )}
+                            </div>
 
-                        <button className="text-sm font-medium mt-auto flex items-center gap-1 hover:underline">
-                            Learn more
-                            <span>→</span>
-                        </button>
-                    </div>
-                ))}
-            </div>
+                            <div className="mb-16">
+                                <h2 className="font-semibold text-xl mb-3">{item.title}</h2>
+                                <p className="text-sm text-gray-800 leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </div>
+
+                            <button className="text-base font-medium flex items-center gap-2">
+                                Learn more
+                                <img className="w-5 h-5" src={RIGHTARROW} alt="arrow" />
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            </Marquee>
+
+
+
+
+
 
 
             <div className="mt-48">
