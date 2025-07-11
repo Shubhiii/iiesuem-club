@@ -8,12 +8,12 @@ import IcldMain from "~/img/icld1.png";
 
 const ICLD = () => {
     return (
-        <div className="w-full font-sans">
-            <section className="bg-[#FFE0C0] px-4 py-12 text-center mb-4">
-                <h1 className="text-2xl md:text-4xl font-bold lg:pt-[15dvh]">
+        <div className="w-screen  font-sans">
+            <section className="bg-[#FFE0C0]  px-4 py-12 text-center mb-4">
+                <h1 className="text-2xl md:text-7xl font-bold lg:pt-[15dvh]">
                     Built to Grow. Trained to Lead.
                 </h1>
-                <p className=" font-semibold max-w-2xl mx-auto mt-4">
+                <p className=" font-semibold text-3xl max-w-2xl mx-auto mt-4">
                     At Ileseum, we believe that exceptional clubs are built by exceptional people. Our
                     commitment to growth, coaching, and continuous development helps every team member
                     thrive, and makes our members experience truly stand out.
