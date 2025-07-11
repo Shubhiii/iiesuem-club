@@ -7,7 +7,9 @@ export default {
       colors: {
         darkGray: '#2B2B2B',
         purple: '#83285F',
-        cream: '#FFDEBF'
+        cream: '#FFDEBF',
+        lightgrey: '#A9A9A9',
+        green: '#7EDFA0'
       },
       fontFamily: {
         sans: [
