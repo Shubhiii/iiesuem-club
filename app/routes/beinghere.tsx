@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import Marquee from "react-fast-marquee";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { BUTTON, CROUSEL, JOB_LIST, JOBS_CARD, LOCATIONS } from "~/constants/homepage";
+import { LOCATIONS } from "~/constants/homepage";
 
 import LEFTARROW from "~/img/leftarrow.svg";
 import RIGHTARROW from "~/img/rightarrow.svg";
@@ -20,6 +20,13 @@ import LOCATION1 from "~/img/location1.svg";
 import LOCATION2 from "~/img/location2.svg";
 import LOCATION3 from "~/img/location3.svg";
 import LOCATION4 from "~/img/location4.svg";
+import benefit1 from "~/img/benefit1.png";
+import benefit2 from "~/img/benefit2.png";
+import benefit3 from "~/img/benefit3.png";
+import benefit4 from "~/img/benefit4.png";
+import benefit5 from "~/img/benefit5.png";
+import modalImage from "~/img/modal.svg";
+
 import { useNavigate } from "@remix-run/react";
 
 const images = [LOCATION1, LOCATION2, LOCATION3, LOCATION4]
@@ -79,6 +86,43 @@ const cards = [
     description: "We think big, act bold, and treat every challenge like it is ours to solve.",
   },
 ];
+const benefits = [
+  {
+    icon: benefit1,
+    title: "Complimentary access to all club facilities",
+  },
+  {
+    icon: benefit2,
+    title: "Epic member + staff events",
+  },
+  {
+    icon: benefit3,
+    title: "Real mental wellness support",
+  },
+  {
+    icon: benefit4,
+    title: "Family-friendly environments",
+  },
+  {
+    icon: benefit5,
+    title: "Flexible schedules that flex with you",
+  },
+];
+
+const values = [
+  {
+    title: "Inclusive Spaces",
+    description: "We remove barriers,\nbuild bridges",
+  },
+  {
+    title: "Local Love",
+    description: "Supporting neighborhoods\nwe’re part of",
+  },
+  {
+    title: "Holistic Wellbeing",
+    description: "Physical, emotional,\nmental—we’ve got layers",
+  },
+];
 
 const renderRow = (items: any[], direction = "left" as any, speed = 100) => {
   const shuffled = [...items].sort(() => Math.random() - 0.5);
@@ -116,7 +160,7 @@ const imgSlider = {
   nextArrow: <NextArrow customClass="right-[-6%]" />,
   prevArrow: <PrevArrow customClass="left-[-6%]" />,
   arrows: true,
-  };
+};
 
 const settings = {
   className: "center",
@@ -128,7 +172,7 @@ const settings = {
   arrows: true,
   nextArrow: <NextArrow customClass="left-[65%]" />,
   prevArrow: <PrevArrow customClass="left-[32%]" />,
-  };
+};
 
 function BeingHere() {
   const navigate = useNavigate();
@@ -263,7 +307,7 @@ function BeingHere() {
                 Love people? Love movement? Love shaping unforgettable experiences?
                 Whether you’re a coach, community lead, or operations pro—we want
                 your kind of energy.
-            </p>
+              </p>
               <a
                 href="#"
                 className="inline-block mt-6 text-base"
@@ -328,9 +372,23 @@ function BeingHere() {
                 and real-time feedback. You don’t just climb here. You evolve, with
                 purpose, with pace, and with pride.
               </p>
-              <button className="bg-[#812C74] text-white px-6 py-2 rounded-full text-base font-medium hover:brightness-110 transition">
-                Know More
-              </button>
+
+              <div className="relative">
+                <button className="bg-[#812C74] text-white px-6 py-2 rounded-full text-base font-medium hover:brightness-110 transition" onClick={() => setIsOpen(true)}>
+                  Know More
+                </button>
+
+                {/* Modal Overlay */}
+                {isOpen && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+
+                    <div className="bg-white rounded-lg p-6 w-full md:max-w-7xl mx-4 shadow-lg relative">
+                      <div className="flex justify-end font-bold text-3xl" ><button onClick={() => setIsOpen(false)} >X</button></div>
+                      <img src={modalImage} alt="" className="h-100 w-100" />
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -357,11 +415,53 @@ function BeingHere() {
                   alt={`Slide ${index + 1}`}
                   className="w-full container mx-auto object-cover rounded-2xl"
                 />
-          </div>
+              </div>
             ))}
           </Slider>
         </div>
 
+      </section>
+      <section>
+        {/* Top Section */}
+        <div className="text-center px-4 py-12">
+          <h2 className="text-3xl md:text-5xl font-semibold">Our Benefits</h2>
+          <p className="mt-3 max-w-3xl mx-auto text-lg font-semibold">
+            At Ilseum, benefits aren’t checkboxes—they’re built to fuel your lifestyle,
+            power your goals, and support your everyday grind.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto">
+            {benefits.map((item, i) => (
+              <div key={i} className="flex items-start gap-4 text-left">
+                <img src={item.icon} alt="icon" className="h-12 w-12 object-contain" />
+                <div>
+                  <p className="font-medium text-lg">{item.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="bg-[#83285F] text-white text-center px-6 mt-4 py-16">
+          <h3 className="text-2xl md:text-4xl font-semibold">Feel At Home At Work</h3>
+          <p className="mt-4 max-w-4xl mx-auto text-lg">
+            We walk the talk. Our clubs are designed for all bodies, all backgrounds, all vibes. <br />
+            We’re inclusive by intention, community-driven by design.
+          </p>
+
+          <div className="mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto">
+            {values.map((val, i) => (
+              <div
+                key={i}
+                className="bg-[#7EDFA0] text-gray-900 p-6 rounded-xl text-left"
+              >
+                <h4 className="text-3xl font-semibold mb-2">{val.title}</h4>
+                <p className="whitespace-pre-line text-md">{val.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </div>
   );

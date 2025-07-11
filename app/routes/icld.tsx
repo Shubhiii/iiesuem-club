@@ -60,7 +60,7 @@ const ICLD = () => {
 
             <section className="bg-white container mx-auto py-28 text-center">
                 <h2 className=" text-3xl md:text-6xl font-semibold">The 6-Day Foundation Program</h2>
-                <div className="mt-11 grid grid-cols-1 md:grid-cols-3 gap-6 w-4xl mx-auto">
+                <div className="mt-11 grid grid-cols-1 md:grid-cols-3 gap-6 w-4xl mx-5 md:mx-auto border rounded-full">
                     {[
                         {
                             title: "Culture & Member Experience",
