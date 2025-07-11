@@ -6,7 +6,11 @@ import CARD3 from "~/img/card3.svg";
 import CARD4 from "~/img/card4.svg";
 import CARD5 from "~/img/card5.svg";
 import RIGHTARROW from "~/img/rightarrow.svg";
-import Marquee from "react-fast-marquee";
+import LEFTARROW from "~/img/leftarrow.svg";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
 
 export const meta: MetaFunction = () => {
@@ -16,6 +20,24 @@ export const meta: MetaFunction = () => {
     ];
 };
 
+
+const NextArrow = ({ onClick }: any) => (
+    <img
+        src={RIGHTARROW}
+        alt="Next"
+        onClick={onClick}
+        className="custom-slick-arrow right-arrow w-10 h-10  absolute right-[-5%] bg-white rounded-full ] top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+    />
+);
+
+const PrevArrow = ({ onClick }: any) => (
+    <img
+        src={LEFTARROW}
+        alt="Previous"
+        onClick={onClick}
+        className="custom-slick-arrow left-arrow w-10 h-10  absolute left-[-5%] bg-white rounded-full top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+    />
+);
 const steps = [
     {
         step: "Step 1",
@@ -37,14 +59,14 @@ const steps = [
     },
     {
         step: "Step 4",
-        title: "Interview",
-        description: "Come ready to chat, ask your questions, and keep it real. It's all about finding a match for you and for us.",
+        title: "Presentation",
+        description: "A little spotlight moment, show us how you think, solve, and shine. No pressure. Just bring your best self.",
         icon: CARD4,
     },
     {
         step: "Step 5",
-        title: "Interview",
-        description: "Come ready to chat, ask your questions, and keep it real. It's all about finding a match for you and for us.",
+        title: "Decision",
+        description: "If we both feel the vibes, we’ll send you the welcome kit, and your spot on the roster.",
         icon: CARD5,
     },
 ];
@@ -72,12 +94,23 @@ export default function HowWeHire() {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        setIsMounted(true)
+        setIsMounted(true);
     }, []);
 
-    if (!isMounted) {
-        return null;
-    }
+    const settings = {
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "0px",
+        slidesToShow: 3,
+        speed: 500,
+        arrows: true,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+    };
+
+
+    if (!isMounted) return null;
 
     return (
 
@@ -91,40 +124,44 @@ export default function HowWeHire() {
                 </p>
             </div>
 
-            <Marquee pauseOnHover={false} gradient={false} speed={80}>
-                <div className="flex pt-20 gap-8">
-                    {steps.map((item, index) => (
-                        <div
-                            key={index}
-                            className=" bg-[#7EDFA0] rounded-3xl px-6 py-2 text-left flex flex-col min-w-[160px] max-w-sm justify-between"
-                        >
-                            <div className="flex justify-between items-start mb-8">
-                                <span className="text-sm font-medium bg-white px-4 py-2 rounded-full">
-                                    {item.step}
-                                </span>
+            {/* // cards */}
+            {/* // cards with slick carousel */}
+            <div className="pt-20">
+                <Slider {...settings}>
+                    {steps.map(({ step, icon, title, description }, index) => (
+                        <div key={index} className="px-4"> {/* spacing between slides */}
+                            <div className="bg-[#7EDFA0] rounded-3xl p-6 text-left flex flex-col min-w-[160px] max-w-sm h-full mx-auto">
+                                {/* Step and Icon */}
+                                <div className="flex justify-between items-start mb-8">
+                                    <span className="text-sm font-medium bg-white px-4 py-2 rounded-full">
+                                        {step}
+                                    </span>
+                                    {icon ? (
+                                        <img src={icon} alt={`${title} icon`} className="w-12 h-12 object-contain" />
+                                    ) : (
+                                        <div className="w-12 h-12" aria-hidden />
+                                    )}
+                                </div>
 
-                                {item.icon ? (
-                                    <img src={item.icon} alt={item.title} className="w-12 h-12" />
-                                ) : (
-                                    <div className="w-12 h-12" />
-                                )}
+                                {/* Title and Description */}
+                                <div className="mb-16">
+                                    <h3 className="text-xl font-semibold mb-3">{title}</h3>
+                                    <p className="text-sm text-gray-800 leading-relaxed min-h-16">{description}</p>
+                                </div>
+
+                                {/* Learn More Button */}
+                                <button
+                                    className="text-base font-medium flex items-center gap-2 text-black hover:underline"
+                                    aria-label={`Learn more about ${title}`}
+                                >
+                                    Learn more
+                                    <img className="w-5 h-5" src={RIGHTARROW} alt="arrow icon" />
+                                </button>
                             </div>
-
-                            <div className="mb-16">
-                                <h2 className="font-semibold text-xl mb-3">{item.title}</h2>
-                                <p className="text-sm text-gray-800 leading-relaxed">
-                                    {item.description}
-                                </p>
-                            </div>
-
-                            <button className="text-base font-medium flex items-center gap-2">
-                                Learn more
-                                <img className="w-5 h-5" src={RIGHTARROW} alt="arrow" />
-                            </button>
                         </div>
                     ))}
-                </div>
-            </Marquee>
+                </Slider>
+            </div>
 
 
 
@@ -132,8 +169,10 @@ export default function HowWeHire() {
 
 
 
-            <div className="mt-48">
-                <h3 className="text-2xl lg:text-4xl font-semibold mb-3 md:mb-10 leading-snug text-center">Still Curious?</h3>
+
+
+            <div className="mt-24">
+                <h3 className="text-2xl lg:text-4xl font-semibold mb-3 md:mb-14 leading-snug text-center">Still Curious?</h3>
                 <div className="flex flex-col gap-6">
                     {ACCORDION.map((item, index) => <Accordion key={index} item={item} />)}
                 </div>

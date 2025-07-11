@@ -14,24 +14,24 @@ const ICLD = () => {
                 <div className="container mx-auto">
                     <section className="px-4 pt-28 pb-12 text-center">
                         <h1 className="text-3xl md:text-6xl font-bold">Built to Grow. Trained to Lead.</h1>
-                        <p className="text-sm md:text-xl font-semibold max-w-4xl mx-auto mt-4">
+                        <p className="text-sm md:text-lg max-w-4xl mx-auto mt-4">
                             Inspired by the legacy of OCLD (Oberoi Centre for Learning and Development), we created ICLD – The Ileseum Centre for Learning & Development, a first-of-its-kind initiative in the fitness and wellness space. It's our in-house learning engine, designed to instill world-class service standards, cultural depth, and leadership mindset from day one.
                         </p>
 
-                        <div className="mt-10 flex flex-col lg:flex-row gap-10 justify-center items-center">
+                        <div className="mt-20 flex flex-col lg:flex-row gap-10  justify-center items-center">
                             <img
                                 src={IcldMain}
                                 alt="Hands united"
-                                className="rounded-lg w-full max-w-[400px]"
+                                className="rounded-lg w-auto"
                             />
                             <div className="text-left max-w-lg">
-                                <h2 className="text-3xl md:text-6xl font-bold mb-2">
+                                <h2 className="text-3xl md:text-4xl font-bold mb-2">
                                     ICLD: The Ileseum Centre for Learning & Development
                                 </h2>
-                                <p className="text-sm md:text-xl font-semibold max-w-4xl mx-auto mt-4">
+                                <p className="text-sm md:text-base max-w-4xl mx-auto mt-4">
                                     The Ileseum Centre for Learning & Development (ICLD) is the foundation of how we build the Ileseum experience from the inside out. Every team member, regardless of role, goes through immersive coaching designed to sharpen instinct, elevate communication, and create member moments that feel effortless, yet unforgettable. From decoding body language to handling high-pressure scenarios with grace, this is where professionalism meets personality, and every employee becomes a culture carrier. Because great spaces don’t happen by chance. They’re built by people who are trained to lead, ready to care, and aligned with one rhythm, the Ileseum way.
                                 </p>
-                                <p className="text-sm md:text-xl font-semibold max-w-4xl mx-auto mt-4 underline">See how you can grow your career →</p>
+                                <p className="text-sm md:text-base max-w-4xl mx-auto mt-4 underline">See how you can grow your career →</p>
                             </div>
                         </div>
                     </section>
@@ -58,9 +58,9 @@ const ICLD = () => {
 
             </section>
 
-            <section className="bg-white py-28 text-center">
-                <h2 className="text-3xl md:text-6xl font-semibold">The 6-Day Foundation Program</h2>
-                <div className="mt-11 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <section className="bg-white container mx-auto py-28 text-center">
+                <h2 className=" text-3xl md:text-6xl font-semibold">The 6-Day Foundation Program</h2>
+                <div className="mt-11 grid grid-cols-1 md:grid-cols-3 gap-6 w-4xl mx-auto">
                     {[
                         {
                             title: "Culture & Member Experience",
@@ -90,9 +90,9 @@ const ICLD = () => {
                             image: Icon3
                         }
                     ].map((item, i) => (
-                        <div key={i} className="bg-[#7EDFA0] md:rounded-lg p-6 text-left">
+                        <div key={i} className="bg-[#7EDFA0] container mx-auto md:rounded-lg  p-6 text-left">
                             <img src={item.image} alt={item.title} className="w-12 h-12 mb-4" />
-                            <h3 className="font-semibold text-2xl mb-2">{item.title}</h3>
+                            <h3 className="font-semibold text-2xl mb-4">{item.title}</h3>
                             <ul className="list-disc list-outside pl-4 text-sm">
                                 {item.points.map((point, j) => (
                                     <li key={j} className="mb-1">{point}</li>
