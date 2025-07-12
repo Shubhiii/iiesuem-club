@@ -172,6 +172,43 @@ const settings = {
   arrows: true,
   nextArrow: <NextArrow customClass="left-[65%]" />,
   prevArrow: <PrevArrow customClass="left-[32%]" />,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+      }
+    },
+    {
+      breakpoint: 1024,
+      settings: {
+        autoplay: true,
+        speed: 5000,
+        autoplaySpeed: 5000,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false,
+        arrows: false,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        autoplay: true,
+        speed: 5000,
+        autoplaySpeed: 5000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 1,
+        arrows: false,
+        dots: false,
+      }
+    }
+  ]
 };
 
 function BeingHere() {
@@ -233,7 +270,7 @@ function BeingHere() {
         </div>
 
         <Marquee pauseOnHover={false} gradient={false} speed={100}>
-          <div className="max-w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 items-center mt-20 px-4">
+          <div className="max-w-full mx-auto flex gap-5 items-center mt-20 px-4">
             <img src={couple} alt="Couple" className="rounded-xl shadow-md w-full h-auto object-cover" />
             <img src={trainer} alt="Trainer" className="rounded-xl shadow-md w-full h-auto object-cover" />
             <img src={yoga} alt="Yoga" className="rounded-xl shadow-md w-full h-auto object-cover" />
@@ -269,10 +306,10 @@ function BeingHere() {
       <section className="mb-28 bg-white overflow-hidden">
         <h2 className="text-3xl font-bold text-center mb-14 text-black">Our Values</h2>
 
-        <div className="relative max-w-7xl mx-auto px-4">
+        <div className="relative max-w-7xl mx-auto px-4 pb-8">
           <Slider ref={sliderRef} {...settings}>
             {cards.map((card, index) => (
-              <div key={index} className="px-16 flex">
+              <div key={index} className="px-2 md:px-10 lg:px-16 flex">
                 <div className="card-inner relative flex flex-col justify-between rounded-[24px] px-6 py-10 text-center shadow-md transition-all duration-300 w-full bg-white text-black border border-[#7EDFA0]">
                   <div className="mb-5 flex justify-center">
                     <span className="w-20 h-14 rounded-full flex items-center justify-center text-sm font-semibold bg-[#7EDFA0] text-black border border-[#7EDFA0]">
@@ -294,7 +331,7 @@ function BeingHere() {
             <h2 className="text-3xl md:text-6xl font-semibold mb-4">
               Grow with Us
             </h2>
-            <p className="text-4xl md:text-lg font-semibold  mb-12">
+            <p className="text-lg font-semibold  mb-12">
               At Ileseum, growth goes beyond titles and timelines. With
               state-of-the-art facilities, team challenges, creative freedom, and
               leadership opportunities across clubs, we create space for you to
@@ -406,7 +443,7 @@ function BeingHere() {
       </section>
 
       <section>
-        <div className="mx-auto mt-10 px-44 relative rounded-2xl overflow-hidden">
+        <div className="mx-auto mt-10 px-16 md:px-44 relative rounded-2xl overflow-hidden">
           <Slider {...imgSlider}>
             {images.map((src, index) => (
               <div key={index}>

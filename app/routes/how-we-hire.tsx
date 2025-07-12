@@ -26,7 +26,7 @@ const NextArrow = ({ onClick }: any) => (
         src={RIGHTARROW}
         alt="Next"
         onClick={onClick}
-        className="custom-slick-arrow right-arrow w-10 h-10  absolute right-[-5%] bg-white rounded-full ] top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+        className="custom-slick-arrow right-arrow w-10 h-10  absolute right-[-1%] md:right-[-5%] bg-white rounded-full ] top-1/2 -translate-y-1/2 z-10 cursor-pointer"
     />
 );
 
@@ -35,7 +35,7 @@ const PrevArrow = ({ onClick }: any) => (
         src={LEFTARROW}
         alt="Previous"
         onClick={onClick}
-        className="custom-slick-arrow left-arrow w-10 h-10  absolute left-[-5%] bg-white rounded-full top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+        className="custom-slick-arrow left-arrow w-10 h-10  absolute left-[-1%] md:left-[-5%] bg-white rounded-full top-1/2 -translate-y-1/2 z-10 cursor-pointer"
     />
 );
 const steps = [
@@ -107,6 +107,35 @@ export default function HowWeHire() {
         arrows: true,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true,
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1,
+                    dots: false,
+                }
+            }
+        ]
     };
 
 

@@ -68,7 +68,7 @@ export const JOBS_CARD = [
 ];
 
 export const BUTTON = [
-    { id: 0, name: 'How we hire', link: '' },
+    { id: 0, name: 'How we hire', link: '/how-we-hire' },
     { id: 1, name: 'Apply now', link: '' }
 ]
 
