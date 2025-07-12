@@ -1,6 +1,7 @@
 import { MetaFunction } from "@remix-run/node";
 import Accordion from "~/components/accordion";
 import CARD1 from "~/img/card1.svg";
+import SOUNDS_GOOD from "~/img/sounds-good.svg";
 import CARD2 from "~/img/card2.svg";
 import CARD3 from "~/img/card3.svg";
 import CARD4 from "~/img/card4.svg";
@@ -12,6 +13,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
+import { BUTTON } from "~/constants/homepage";
 
 export const meta: MetaFunction = () => {
     return [
@@ -143,7 +145,7 @@ export default function HowWeHire() {
 
     return (
 
-
+        <>
 
         <div className="container mx-auto px-4 bg-white pt-28 pb-10 md:py-40 text-black">
             <div className="text-center flex flex-col gap-8">
@@ -207,5 +209,26 @@ export default function HowWeHire() {
                 </div>
             </div>
         </div>
+
+            <div className="bg-purple py-10 md:py-20 relative">
+                <div className="flex flex-col items-center space-y-4 md:space-y-6 text-center px-4 text-white">
+                    <img className="w-20 h-20" src={SOUNDS_GOOD} alt="Sounds Good" />
+
+                    <h1 className="font-semibold text-3xl md:text-5xl">Life At Ileseum</h1>
+
+                    <p className="max-w-120 text-sm md:text-base">
+                        It doesn’t matter who you are or where you’re from—here, <span className="md:block"></span> means. High-energy spaces, inclusive vibes, and endless ways to move, recover, and connect.
+                    </p>
+
+                    <div className="flex gap-4">
+                        <a className="px-7 py-2 text-white text-sm border rounded-full  hover:bg-white hover:text-purple transition-all"
+                        >
+                            Learn more about our culture
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </>
+
     )
 }
