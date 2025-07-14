@@ -42,7 +42,7 @@ const Footer = () => {
                         <a href="/">
                             <img className='w-3/6 md:w-auto transition-all' src={LIGHT_LOGO} alt='Ilesuem Club' />
                         </a>
-                        <p>
+                        <p className="text-white">
                             Empowering everyday athletes and creating <span className="md:block">stronger, fitter, and healthier communities</span> around the globe.
                         </p>
 
@@ -51,8 +51,8 @@ const Footer = () => {
                             const href = isEmail ? `mailto:${info.value}` : `tel:${info.value}`;
 
                             return (
-                                <p key={info.label}>
-                                    {info.label}: <a href={href} className="hover:underline transition-all">{info.value}</a>
+                                <p key={info.label} className="text-white">
+                                    {info.label}: <a href={href} className="hover:underline transition-all text-white">{info.value}</a>
                                 </p>
                             );
                         })}
@@ -61,11 +61,11 @@ const Footer = () => {
 
                     {MENU.map((menu) => (
                         <div key={menu.id} className="border-t md:border-t-0 pt-4 md:pt-0 border-dashed">
-                            <h3 className="mb-4 font-semibold text-lg md:text-2xl">{menu.header}</h3>
+                            <h3 className="mb-4 text-white font-semibold text-lg md:text-2xl">{menu.header}</h3>
 
                             <div className="flex flex-col gap-2.5">
                                 {menu.children.map((child, index) => (
-                                    <a key={menu.header + "-" + index} href={child.link} className="hover:underline transition-all">{child.name}</a>
+                                    <a key={menu.header + "-" + index} href={child.link} className="text-white hover:underline transition-all">{child.name}</a>
                                 ))}
                             </div>
                         </div>
@@ -73,7 +73,7 @@ const Footer = () => {
 
                     <div className="border-t md:border-t-0 pt-4 md:pt-0 border-dashed flex md:flex-col justify-between md:justify-normal gap-8">
                         <div>
-                            <h3 className="mb-4 font-semibold text-lg md:text-2xl">Select Ileseum Club</h3>
+                            <h3 className="mb-4 text-white font-semibold text-lg md:text-2xl">Select Ileseum Club</h3>
                             <select className="custom-select bg-transparent rounded-full p-0 text-xs md:text-base w-full text-white"
                                 style={{
                                     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`
@@ -83,7 +83,7 @@ const Footer = () => {
                             </select>
                         </div>
                         <div>
-                            <h3 className="mb-4 font-semibold text-lg md:text-2xl">Follow us:</h3>
+                            <h3 className="mb-4 font-semibold text-white text-lg md:text-2xl">Follow us:</h3>
 
                             <div className="flex gap-2">
                                 <a href="#" title="FACEBOOK">
@@ -104,8 +104,8 @@ const Footer = () => {
                 </div>
             </div>
 
-            <p className="mt-20 text-center text-sm md:text-base">
-                2025 Ileseum Clubs Itd. All rights reserved | <a href="#" className="hover:underline transition-all">Terms &amp; Conditions</a> | <a href="#" className="hover:underline transition-all">Privacy policy</a>
+            <p className="mt-20 text-center text-white text-sm md:text-base">
+                2025 Ileseum Clubs Itd. All rights reserved | <a href="#" className="text-white hover:underline transition-all">Terms &amp; Conditions</a> | <a href="#" className="hover:underline transition-all">Privacy policy</a>
             </p>
         </footer>
     )

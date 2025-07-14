@@ -4,7 +4,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLocation,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
@@ -21,12 +20,11 @@ export const links: LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
   },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const location = useLocation();
   return (
     <html lang="en">
       <head>
@@ -36,7 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Header isDark={location.pathname !== '/'} />
+        <Header />
         {children}
         <Footer />
         <ScrollRestoration />

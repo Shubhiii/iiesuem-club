@@ -12,16 +12,8 @@ export default {
         green: '#7EDFA0'
       },
       fontFamily: {
-        sans: [
-          "Open Sans",
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif",
-          "Apple Color Emoji",
-          "Segoe UI Emoji",
-          "Segoe UI Symbol",
-          "Noto Color Emoji",
-        ],
+        openSans: ["Open Sans", "sans-serif"],
+        cairo: ["Cairo", "sans-serif"],
       },
     },
   },

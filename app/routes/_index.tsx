@@ -100,7 +100,7 @@ export default function Index() {
                       <p className="text-lg font-semibold">{job.title}</p>
                     </div>
                   ))}
-                  </div>
+                </div>
               </Marquee>
             </div>
           )}
@@ -219,9 +219,9 @@ export default function Index() {
         </div>
 
         <div className="flex flex-col gap-4 md:gap-10">
-            {renderRow(LOCATIONS, "left")}
+          {renderRow(LOCATIONS, "left")}
           {renderRow(LOCATIONS, "right", 50)}
-            {renderRow(LOCATIONS, "left",)}
+          {renderRow(LOCATIONS, "left",)}
         </div>
       </div>
 
@@ -229,9 +229,9 @@ export default function Index() {
         <div className="flex flex-col items-center space-y-4 md:space-y-6 text-center px-4 text-white">
           <img className="w-20 h-20" src={SOUNDS_GOOD} alt="Sounds Good" />
 
-          <h1 className="font-semibold text-3xl md:text-5xl">Sound Good?</h1>
+          <h1 className="font-semibold text-white text-3xl md:text-5xl">Sound Good?</h1>
 
-          <p className="max-w-120 text-sm md:text-base">
+          <p className="max-w-120 text-white text-sm md:text-base">
             Get to know our hiring process before you apply or find <span className="md:block"> answers to any lingering questions, right here, right now.</span>
           </p>
 
